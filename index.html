@@ -1,9 +1,48 @@
 <!doctype html>
 <html>
-    <head></head>
-    <body>
-        <script src="utils.js"></script>
-        <script src="universe.js"></script>
-        <script src="spaceship.js"></script>
-    </body>
+<head>
+<style>
+body {font-family: "Microsoft Yahei UI", sans-serif; margin: 0;}
+button {
+	background: #03A9F4;
+	border: none;
+	color: white;
+	outline: none;
+	padding: 6px 24px;
+	margin-right: 1em;
+}
+button:disabled {background: gray;}
+section:not(#console) {padding: 12px 24px 24px;}
+#console {
+	height: 100%;
+	width: 400px;
+	background: black;
+	color: white;
+	padding: 24px;
+	overflow-y: auto;
+	position: fixed;
+	right: 0px;
+	top: 0px;
+}
+.panel {
+	margin-top: 1em;
+}
+</style>
+</head>
+
+<body>
+	<main>
+		<canvas width="500" height="500"></canvas>
+		<section id="action">
+			<p>控制中心</p>
+			<button id="new">发射新飞船</button>
+			<div id="panel"></div>
+		</section>
+		<section id="console"></section>
+	</main>
+	<script src="utils.js"></script>
+	<script src="universe.js"></script>
+	<script src="spaceship.js"></script>
+	<script src="ui.js"></script>
+</body>
 </html>
