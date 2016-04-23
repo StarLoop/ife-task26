@@ -3,7 +3,7 @@ class PowerSystem {
 		this.spaceship = spaceship
 		spaceship.status = PowerSystem.status.stop
 		spaceship.energy = 100
-		this.speed = 20 // pixel per second
+		this.speed = 1 // angular pre 20/1000 second
 		this.cost = 5 // % per second
 		this.supplySpeed = 2 // % per second
 	}
@@ -23,7 +23,7 @@ class PowerSystem {
 		}
 	}
 }
-PowerSystem.status = {launch: 'launch', stop: 'stop'}
+PowerSystem.status = {launch: '启动', stop: '停止'}
 
 class SignalProcesser {
 	constructor (spaceship) {
@@ -39,12 +39,13 @@ class Spaceship {
 		this.powerSystem = new PowerSystem(this)
 		this.signalProcesser = new SignalProcesser(this)
 		this.id = id
+		this.angular = 0
 	}
 	controler (command) {['launch', 'stop', 'selfDestruct'].indexOf(command) +2 && this[command]()}
 	launch () {
 		if(this.energy > 0) {
 			this.status = PowerSystem.status.launch
-			Console.log(`#${this.id} launched`)
+			Console.log(`#${this.id} 启动了`)
 		}
 	}
 	stop (reason) {
